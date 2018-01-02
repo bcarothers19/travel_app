@@ -25,12 +25,23 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+
         nameTextField.delegate = self
         addressTextField.delegate = self
         urlTextField.delegate = self
         dateTextField.delegate = self
+        
+        // Set up views if editing an existing place
+        if let place = place {
+            navigationItem.title = place.name
+            nameTextField.text = place.name
+            addressTextField.text = place.address
+            urlTextField.text = place.url
+            dateTextField.text = place.date
+            photoImageView.image = place.photo
+            bucketlistToggleControl.bucketListSelected = place.bucketList
+            visitedToggleControl.visitedSelected = place.visited
+        }
         
         // Enable the Save button only if the text field has a valid Place name
         updateSaveButtonState()
@@ -78,8 +89,18 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
     // Mark: Navigation
-    @IBAction func calcel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // Depending on the style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways
+        let isPresentingInAddPlaceMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddPlaceMode {
+            print("presenting in add place mode")
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The PlaceViewController is not inside a navigation controller")
+        }
     }
     
     

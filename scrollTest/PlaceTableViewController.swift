@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PlaceTableViewController: UITableViewController {
 
@@ -90,24 +91,44 @@ class PlaceTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? ""){
+        case "AddItem":
+            os_log("Adding a new place", log: OSLog.default, type: .debug)
+        case "ShowDetail":
+            guard let placeDetailViewController = segue.destination as? PlaceViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedPlaceCell = sender as? PlaceTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedPlaceCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            let selectedPlace = places[indexPath.row]
+            placeDetailViewController.place = selectedPlace
+        default:
+            fatalError("Unexpected segue identifier: \(String(describing: segue.identifier))")
+        }
     }
-    */
 
     // MARK: Actions
     @IBAction func unwindToPlaceList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PlaceViewController, let place = sourceViewController.place {
-            // Add a new place
-            let newIndexPath = IndexPath(row: places.count, section: 0)
-            
-            places.append(place)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing place
+                places[selectedIndexPath.row] = place
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // Add a new place
+                let newIndexPath = IndexPath(row: places.count, section: 0)
+                places.append(place)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     
@@ -128,17 +149,17 @@ class PlaceTableViewController: UITableViewController {
             fatalError("Unable to instantiate place3")
         }
         
-        let photo4 = UIImage(named: "sample_lappland_zion")
+        let photo4 = UIImage(named: "sample_zion")
         guard let place4 = Place(name: "Zion National Park", photo: photo4, address: "Zion National Park, Utah", url: "www.zionnationalpark.com", date: "Apr - May", bucketList: true, visited: false) else {
             fatalError("Unable to instantiate place4")
         }
         
-        let photo5 = UIImage(named: "sample_lappland_florence")
+        let photo5 = UIImage(named: "sample_florence")
         guard let place5 = Place(name: "Florence", photo: photo5, address: "Florence, Italy", url: nil, date: "Anytime!", bucketList: false, visited: true) else {
             fatalError("Unable to instantiate place5")
         }
         
-        let photo6 = UIImage(named: "sample_lappland_redrocks")
+        let photo6 = UIImage(named: "sample_redrocks")
         guard let place6 = Place(name: "Red Rocks Ampitheatre", photo: photo6, address: "18300 W Alameda Pkwy, Morrison, CO 80465", url: "redrocksonline.com/", date: "Anytime!", bucketList: true, visited: true) else {
             fatalError("Unable to instantiate place6")
         }

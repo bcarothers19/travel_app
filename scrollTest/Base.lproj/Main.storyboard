@@ -54,6 +54,7 @@
                                     <outlet property="nameLabel" destination="cUa-iM-tpA" id="hsh-H5-5AP"/>
                                     <outlet property="photoImageView" destination="Q20-0Y-roi" id="iAq-HS-DbL"/>
                                     <outlet property="visitedToggleControl" destination="eoE-ad-Nen" id="jSr-S1-sBg"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="P4B-AP-mLc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -197,7 +198,7 @@
                     <navigationItem key="navigationItem" title="New Place" id="Pm9-dT-F9A">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uwD-i6-Yr0">
                             <connections>
-                                <action selector="calcel:" destination="BYZ-38-t0r" id="gRd-r9-65D"/>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="PQQ-fg-zIw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="PTh-da-wS0">
@@ -262,10 +263,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTg-gA-Pw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="45"/>
+            <point key="canvasLocation" x="345" y="404"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="791" height="323"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="P4B-AP-mLc"/>
+    </inferredMetricsTieBreakers>
 </document>
