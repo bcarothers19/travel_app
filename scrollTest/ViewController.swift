@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var bucketListButton: UIButton!
+    @IBOutlet weak var bucketlistToggleControl: BucketlistToggleControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +39,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         textField.resignFirstResponder()
         return true
     }
-    
-    
-    
-    func buttonPressed(sender: UIButton) {
-        
-    }
-    
-    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         

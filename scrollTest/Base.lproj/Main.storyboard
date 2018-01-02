@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PRS-3a-ijF">
-                                <rect key="frame" x="0.0" y="-38" width="375" height="1000"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRS-3a-ijF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U1j-jj-39T">
                                         <rect key="frame" x="20" y="30" width="375" height="672"/>
@@ -116,6 +116,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lWq-i4-OCj" customClass="BucketlistToggleControl" customModule="scrollTest" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="822" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYf-17-daU" customClass="VisitedToggleControl" customModule="scrollTest" customModuleProvider="target">
+                                        <rect key="frame" x="145" y="822" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="U1j-jj-39T" secondAttribute="trailing" constant="20" id="9m7-Jd-aO9"/>
@@ -138,7 +146,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="addressTextField" destination="L9K-Gl-58I" id="DI7-kG-651"/>
-                        <outlet property="bucketListButton" destination="5PH-CZ-oWd" id="JW6-zo-d03"/>
+                        <outlet property="bucketlistToggleControl" destination="lWq-i4-OCj" id="npS-Gx-S9v"/>
                         <outlet property="dateTextField" destination="UdQ-TG-Xjj" id="WFK-S6-tkS"/>
                         <outlet property="nameTextField" destination="Kzw-qI-xe6" id="YtN-LK-DDq"/>
                         <outlet property="photoImageView" destination="fbb-Ri-NKc" id="e7A-h0-V0Y"/>

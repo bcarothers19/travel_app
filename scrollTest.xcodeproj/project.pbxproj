@@ -14,6 +14,7 @@
 		D36A6FB71FF9CC02008AAD89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36A6FB51FF9CC02008AAD89 /* LaunchScreen.storyboard */; };
 		D36A6FC21FF9CC02008AAD89 /* scrollTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FC11FF9CC02008AAD89 /* scrollTestTests.swift */; };
 		D36A6FCD1FFA3093008AAD89 /* BucketlistToggleControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FCC1FFA3093008AAD89 /* BucketlistToggleControl.swift */; };
+		D36A6FCF1FFB17FC008AAD89 /* VisitedToggleControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FCE1FFB17FC008AAD89 /* VisitedToggleControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D36A6FC11FF9CC02008AAD89 /* scrollTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scrollTestTests.swift; sourceTree = "<group>"; };
 		D36A6FC31FF9CC02008AAD89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D36A6FCC1FFA3093008AAD89 /* BucketlistToggleControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistToggleControl.swift; sourceTree = "<group>"; };
+		D36A6FCE1FFB17FC008AAD89 /* VisitedToggleControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitedToggleControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				D36A6FAC1FF9CC02008AAD89 /* AppDelegate.swift */,
 				D36A6FAE1FF9CC02008AAD89 /* ViewController.swift */,
 				D36A6FCC1FFA3093008AAD89 /* BucketlistToggleControl.swift */,
+				D36A6FCE1FFB17FC008AAD89 /* VisitedToggleControl.swift */,
 				D36A6FB01FF9CC02008AAD89 /* Main.storyboard */,
 				D36A6FB31FF9CC02008AAD89 /* Assets.xcassets */,
 				D36A6FB51FF9CC02008AAD89 /* LaunchScreen.storyboard */,
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36A6FCF1FFB17FC008AAD89 /* VisitedToggleControl.swift in Sources */,
 				D36A6FAF1FF9CC02008AAD89 /* ViewController.swift in Sources */,
 				D36A6FAD1FF9CC02008AAD89 /* AppDelegate.swift in Sources */,
 				D36A6FCD1FFA3093008AAD89 /* BucketlistToggleControl.swift in Sources */,
