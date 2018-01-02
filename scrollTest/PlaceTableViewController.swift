@@ -17,8 +17,16 @@ class PlaceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Load the sample data
-        loadSamplePlaces()
+        // Use the edit button item provided by the table view controller
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        // Load any saved places, otherwise load sample data
+        if let savedPlaces = loadPlaces() {
+            places += savedPlaces
+        } else {
+            // Load the sample data
+            loadSamplePlaces()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,25 +64,23 @@ class PlaceTableViewController: UITableViewController {
         return cell
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            places.remove(at: indexPath.row)
+            savePlaces()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -129,6 +135,9 @@ class PlaceTableViewController: UITableViewController {
                 places.append(place)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            
+            // Save the places
+            savePlaces()
         }
     }
     
@@ -165,6 +174,20 @@ class PlaceTableViewController: UITableViewController {
         }
         
         places += [place1, place2, place3, place4, place5, place6]
+    }
+    
+    private func savePlaces() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(places, toFile: Place.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("Places successfully saved", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save places", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadPlaces() -> [Place]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Place.ArchiveURL.path) as? [Place]
     }
     
 }
