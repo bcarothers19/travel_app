@@ -11,26 +11,20 @@ import XCTest
 
 class scrollTestTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    // MARK: Place Class Tests
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // Confirm the Place initializaer returns a Place object when passed valid parameters
+    func testPlaceInitializationSucceeds() {
+        let normalPlace = Place.init(name: "Lappland", photo: nil, address: "123 North St, Lappland Finland", url: "www.lappland.fl", date: "Dec - March", bucketList: true, visited: false)
+        XCTAssertNotNil(normalPlace)
+        
+        let onlyNamePlace = Place.init(name: "Lappland", photo: nil, address: nil, url: nil, date: nil, bucketList: true, visited: false)
+        XCTAssertNotNil(onlyNamePlace)
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+
+    func testPlaceInitializationFails() {
+        let emptyName = Place.init(name: "", photo: nil, address: "123 North St, Lappland Finland", url: "www.lappland.fl", date: "Dec - March", bucketList: true, visited: false)
+        XCTAssertNil(emptyName)
     }
     
 }

@@ -88,13 +88,6 @@
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="gG5-Oh-jve"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PH-CZ-oWd">
-                                        <rect key="frame" x="145" y="707" width="50.000000000000014" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="bucketListBlack"/>
-                                        <state key="selected" image="bucketListGreen"/>
-                                        <state key="highlighted" image="bucketListGreen"/>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bucket List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-iO-8Pf">
                                         <rect key="frame" x="42" y="722" width="95" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,13 +95,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JG-X6-d95">
-                                        <rect key="frame" x="310" y="707" width="50.000000000000057" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="visitedFalse"/>
-                                        <state key="selected" image="visitedTrue"/>
-                                        <state key="highlighted" image="visitedTrue"/>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Visited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Guj-Ti-0GK">
                                         <rect key="frame" x="242" y="722" width="59.999999999999986" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -117,11 +103,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lWq-i4-OCj" customClass="BucketlistToggleControl" customModule="scrollTest" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="822" width="50" height="50"/>
+                                        <rect key="frame" x="145" y="707" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYf-17-daU" customClass="VisitedToggleControl" customModule="scrollTest" customModuleProvider="target">
-                                        <rect key="frame" x="145" y="822" width="50" height="50"/>
+                                        <rect key="frame" x="310" y="707" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </stackView>
                                 </subviews>
@@ -151,6 +137,7 @@
                         <outlet property="nameTextField" destination="Kzw-qI-xe6" id="YtN-LK-DDq"/>
                         <outlet property="photoImageView" destination="fbb-Ri-NKc" id="e7A-h0-V0Y"/>
                         <outlet property="urlTextField" destination="4fK-5j-kjk" id="bhD-kX-LX4"/>
+                        <outlet property="visitedToggleControl" destination="oYf-17-daU" id="POQ-dK-Ndg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -164,10 +151,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bucketListBlack" width="543" height="562"/>
-        <image name="bucketListGreen" width="543" height="562"/>
         <image name="defaultPhoto" width="791" height="323"/>
-        <image name="visitedFalse" width="555" height="555"/>
-        <image name="visitedTrue" width="562" height="525"/>
     </resources>
 </document>

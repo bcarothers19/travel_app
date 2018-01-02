@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var bucketlistToggleControl: BucketlistToggleControl!
+    @IBOutlet weak var visitedToggleControl: VisitedToggleControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
