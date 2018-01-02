@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -18,6 +19,9 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var bucketlistToggleControl: BucketlistToggleControl!
     @IBOutlet weak var visitedToggleControl: VisitedToggleControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var place: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,9 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         addressTextField.delegate = self
         urlTextField.delegate = self
         dateTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Place name
+        updateSaveButtonState()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,8 +48,14 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     // MARK: UIImagePickerControllerDelegate
@@ -62,6 +75,34 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         
         // Dismiss the picker
         dismiss(animated: true, completion: nil)
+    }
+    
+    // Mark: Navigation
+    @IBAction func calcel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // This method lets you configure a view controller before it's presented
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameTextField.text ?? ""
+        let address = addressTextField.text ?? ""
+        let url = urlTextField.text ?? ""
+        let date = dateTextField.text ?? ""
+        let photo = photoImageView.image
+        let bucketList = bucketlistToggleControl.bucketListSelected
+        let visited = visitedToggleControl.visitedSelected
+        
+        // Set the place to be passed to the PlaceTableViewController after the unwind segue
+        place = Place(name: name, photo: photo, address: address, url: url, date: date, bucketList: bucketList, visited: visited)
     }
     
     // MARK: Actions
@@ -84,6 +125,12 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBAction func setBucketListImage(_ sender: UIButton) {
     }
     
+    // MARK: Private Methods
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
     
 }
 

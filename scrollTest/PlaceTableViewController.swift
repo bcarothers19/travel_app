@@ -100,6 +100,17 @@ class PlaceTableViewController: UITableViewController {
     }
     */
 
+    // MARK: Actions
+    @IBAction func unwindToPlaceList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? PlaceViewController, let place = sourceViewController.place {
+            // Add a new place
+            let newIndexPath = IndexPath(row: places.count, section: 0)
+            
+            places.append(place)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     // MARK: Private Methods
     private func loadSamplePlaces() {
         let photo1 = UIImage(named: "sample_tokyo")
@@ -123,7 +134,7 @@ class PlaceTableViewController: UITableViewController {
         }
         
         let photo5 = UIImage(named: "sample_lappland_florence")
-        guard let place5 = Place(name: "Florence", photo: photo4, address: "Florence, Italy", url: nil, date: "Anytime!", bucketList: false, visited: true) else {
+        guard let place5 = Place(name: "Florence", photo: photo5, address: "Florence, Italy", url: nil, date: "Anytime!", bucketList: false, visited: true) else {
             fatalError("Unable to instantiate place5")
         }
         
