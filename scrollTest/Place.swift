@@ -16,7 +16,6 @@ class Place: NSObject, NSCoding {
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("places")
     
     // MARK: Properties
-    
     var name: String
     var photo: UIImage?
     var address: String?
