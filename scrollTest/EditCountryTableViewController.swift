@@ -13,42 +13,15 @@ class EditCountryTableViewController: UITableViewController {
 
     // MARK: Properties
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    //    var countriesDict = Globals.Countries.countries as NSDictionary
-    var countriesDict = Globals.Countries.countries as! NSMutableDictionary
+    // Get the global lists that we will be making changes to
+    var countriesDict = Globals.Countries.countries
     var countriesList = Globals.Countries.countries.allValues as! [Country]
     var visitedList = Globals.Countries.visitedCountries
     var wantToVisitList = Globals.Countries.wantToVisitCountries
 
-//    var countries = [Country]()
-    
-//    var countryCodesData = Dictionary<String, String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-//        countryCodesData = loadJSONData(name: "CountryCodesJSON")
-
-        
-       // Load the country data
-//        loadCountries()
-        
-        // TESTING
-//        print(CountryTableViewController.testVar)
-//        var newTestVar = CountryTableViewController.testVar
-//        newTestVar += ["added"]
-//        print(newTestVar)
-//        print(CountryTableViewController.testVar)
-//        CountryTableViewController.testVar = newTestVar
-//        print(CountryTableViewController.testVar)
-//        print(Globals.Countries.countries)
-//        var newTestVar = Globals.Countries.countries
-//        newTestVar += ["added"]
-//        print(newTestVar)
-//        print(Globals.Countries.countries)
-//        Globals.Countries.countries = newTestVar
-//        print(Globals.Countries.countries)
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,8 +37,6 @@ class EditCountryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        print(countriesList.count)
         return countriesList.count
     }
 
@@ -79,6 +50,7 @@ class EditCountryTableViewController: UITableViewController {
         // Fetches the appropriate country for the data source layout
         let country = countriesList[indexPath.row]
         
+        // Get the country information we will display
         cell.nameLabel.text = country.name
         cell.flagImageView.image = country.flag
             
@@ -152,15 +124,10 @@ class EditCountryTableViewController: UITableViewController {
         }
         // Update the countriesList/Dict with the changes we made to this country
         countriesList[indexPath.row] = country
-        print(country.name)
-        print(countriesDict[country.name])
         countriesDict[country.name] = country
-       // countriesDict.setValue(country, forKey: country.name)
         // Reload this row to update the background color
         self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
 
-        
-        
         // ***** Functionality for when "BEEN"/"WANT" selected - will need to make some tweaks *****
 //        // Add or remove the country from visitedList depending on its current state
 //        if country.hasVisited {
@@ -185,6 +152,7 @@ class EditCountryTableViewController: UITableViewController {
 //        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
     }
 
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -225,15 +193,9 @@ class EditCountryTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("preparing - editcountrytableview")
-        if segue.identifier == "unwindToVisited" {
-            let destinationViewController = segue.destination as! CountryTableViewController
-        }
-        os_log("preparing83733", log: OSLog.default , type: .debug)
         super.prepare(for: segue, sender: sender)
-        // Configure the destination view controller for when the save button is pressed
+        // Update our global lists with our changes when the save button is pressed
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
@@ -243,8 +205,4 @@ class EditCountryTableViewController: UITableViewController {
         Globals.Countries.visitedCountries = visitedList
         Globals.Countries.wantToVisitCountries = wantToVisitList
     }
-
-    // MARK: Private Methods
-    
-
 }

@@ -12,23 +12,13 @@ import os.log
 class CountryTableViewController: UITableViewController {
     
     // MARK: Properties
-//    var countries = [Country]()
-//    var visitedCountries = [Country]()
-//    var wantToVisitCountries = [Country]()
-    
-    
-    var countryCodesData = Dictionary<String, String>()
+    var countryCodesData = Dictionary<String, String>() // Ex: {"Finland": "FL", ...}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        countryCodesData = loadJSONData(name: "CountryCodesJSON")
-        
-        
         // Load the country data
+        countryCodesData = loadJSONData(name: "CountryCodesJSON")
         loadCountries()
-        Globals.Countries.visitedCountries = ["United States of America", "Sweden"]
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,28 +47,26 @@ class CountryTableViewController: UITableViewController {
         
         // Fetches the appropriate country for the data source layout
         let countryName = Globals.Countries.visitedCountries[indexPath.row]
-        
         let countryObject = Globals.Countries.countries[countryName] as! Country
         
+        // Get the country information we will display
         cell.nameLabel.text = countryName
         cell.flagImageView.image = countryObject.flag
-        
         
         // Change the color of the cell
         if countryObject.hasVisited {
             cell.contentView.backgroundColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-            
         } else if countryObject.wantToVisit {
             cell.contentView.backgroundColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
-        } // Default is white if hasVisited and wantToVisit are both fault
-        
-        
+        } else {
+            // Default is white if hasVisited and wantToVisit are both fault
+            cell.contentView.backgroundColor = .white
+        }
         
         return cell
     }
     
-    
-    
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -125,8 +113,10 @@ class CountryTableViewController: UITableViewController {
     
     // MARK: Private Methods
     private func loadJSONData(name: String) -> Dictionary<String, String> {
+        // Get the data asset that we are trying to load
         if let dataAsset = NSDataAsset(name: name) {
             do {
+                // Load the data as a JSON
                 let data = try JSONSerialization.jsonObject(with: dataAsset.data, options: []) as! Dictionary<String, String>
                 return data
             } catch {
@@ -138,16 +128,21 @@ class CountryTableViewController: UITableViewController {
     }
     
     private func loadCountries() {
+        // Define our lists which will store the countries
         var loadedCountries = [String: Country]()
-        var loadedVisited = [String]()
-        var loadedWantToVisit = [String]()
+        var loadedVisited = [String]() // list of country names
+        var loadedWantToVisit = [String]() // list of country names
+        // Iterate through each country
         for country in countryCodesData.keys {
             print(country)
+            // Get the country's flag and resize it to fit (while maintaining original aspect ration)
             let flag = UIImage(named: "flags/" + country)
             let reFlag = flag!.resizedImageAspectFixedHeight(maxHeight: 40)
+            // Create a new Country object
             guard let c = Country(name: countryCodesData[country]!, flag: reFlag, hasVisited: false, wantToVisit: false) else {
                 fatalError("Unable to instantiate \(country)")
             }
+            // Add the name of this country to Been/Want lists
             loadedCountries[c.name] = c
             if c.hasVisited {
                 loadedVisited += [c.name]
@@ -156,8 +151,6 @@ class CountryTableViewController: UITableViewController {
                 loadedWantToVisit += [c.name]
             }
         }
-        print(loadedCountries.count)
-        
         // Update our global lists
         Globals.Countries.countries = NSMutableDictionary(dictionary: loadedCountries)
         Globals.Countries.visitedCountries = loadedVisited
@@ -167,12 +160,8 @@ class CountryTableViewController: UITableViewController {
     
     // MARK: Actions
     @IBAction func unwindToVisitedCountryList(sender: UIStoryboardSegue) {
+        // This function is called when coming back to this TableView after editing the country (been/want) lists
+        // Multiple countries could be added/removed at the same time, so reload the TableView
         self.tableView.reloadData()
-        
-        os_log("unwinding293912", log: OSLog.default , type: .debug)
-        
-        print("clicked save")
-//        let newIndexPath = IndexPath(row: Globals.Countries.visitedCountries.count, section: 0)
-//        self.navigationController!.popViewController(animated: true)
     }
 }

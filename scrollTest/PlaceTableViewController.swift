@@ -124,7 +124,6 @@ class PlaceTableViewController: UITableViewController {
 
     // MARK: Actions
     @IBAction func unwindToPlaceList(sender: UIStoryboardSegue) {
-        os_log("unwinding4556", log: OSLog.default , type: .debug)
 
         if let sourceViewController = sender.source as? PlaceViewController, let place = sourceViewController.place {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
