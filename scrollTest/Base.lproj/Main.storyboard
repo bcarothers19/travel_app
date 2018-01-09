@@ -231,16 +231,6 @@
             </objects>
             <point key="canvasLocation" x="389.13043478260875" y="-361.14130434782612"/>
         </scene>
-        <!--Map View-->
-        <scene sceneID="jb3-w9-pVP">
-            <objects>
-                <viewController title="Map View" id="gzZ-Gc-gKa" customClass="MapViewController" customModule="scrollTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="rzm-lI-u7L"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="axN-PC-U0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2297" y="296"/>
-        </scene>
         <!--Item-->
         <scene sceneID="wR4-pg-X1S">
             <objects>
@@ -258,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Toz-ta-USS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1438" y="709"/>
+            <point key="canvasLocation" x="-2297" y="597"/>
         </scene>
         <!--Visited Countries-->
         <scene sceneID="kd6-9z-3K1">
@@ -423,7 +413,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Q3s-sN-nQx" kind="relationship" relationship="viewControllers" id="R3z-Zz-suw"/>
-                        <segue destination="gzZ-Gc-gKa" kind="relationship" relationship="viewControllers" id="uXP-uG-oLa"/>
                         <segue destination="vft-cG-pj9" kind="relationship" relationship="viewControllers" id="3iR-l7-BYr"/>
                         <segue destination="5gk-1T-UNw" kind="relationship" relationship="viewControllers" id="6Bv-VA-VNC"/>
                     </connections>
