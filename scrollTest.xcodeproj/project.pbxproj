@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61C11F6CF1ED523D80397FF4 /* libPods-scrollTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B443EA663787F503C3EEF242 /* libPods-scrollTest.a */; };
+		D30DD3312002CC8000FA33C7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30DD3302002CC8000FA33C7 /* Globals.swift */; };
+		D30DD3332002E41E00FA33C7 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30DD3322002E41E00FA33C7 /* CountryTableViewCell.swift */; };
+		D350D0ED200196930008D44B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D350D0EC200196930008D44B /* MapViewController.swift */; };
+		D350D0EF2001C8160008D44B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = D350D0EE2001C8160008D44B /* Country.swift */; };
+		D350D0F12001DAC80008D44B /* EditCountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D350D0F02001DAC80008D44B /* EditCountryTableViewController.swift */; };
+		D350D0F52001F3F50008D44B /* UIImage+resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D350D0F42001F3F50008D44B /* UIImage+resizing.swift */; };
+		D350D0F72002C0A40008D44B /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D350D0F62002C0A40008D44B /* CountryTableViewController.swift */; };
 		D36A6FAD1FF9CC02008AAD89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FAC1FF9CC02008AAD89 /* AppDelegate.swift */; };
 		D36A6FAF1FF9CC02008AAD89 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FAE1FF9CC02008AAD89 /* PlaceViewController.swift */; };
 		D36A6FB21FF9CC02008AAD89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36A6FB01FF9CC02008AAD89 /* Main.storyboard */; };
@@ -18,6 +26,8 @@
 		D36A6FD11FFB1F27008AAD89 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FD01FFB1F27008AAD89 /* Place.swift */; };
 		D36A6FD31FFB249A008AAD89 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FD21FFB249A008AAD89 /* PlaceTableViewCell.swift */; };
 		D36A6FD51FFB40E3008AAD89 /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FD41FFB40E3008AAD89 /* PlaceTableViewController.swift */; };
+		D39113092002F15D001FC873 /* EditCountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39113082002F15D001FC873 /* EditCountryTableViewCell.swift */; };
+		D3BBF52620048B8E00236EA1 /* GMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBF52520048B8E00236EA1 /* GMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52EAA17691AF04CBACF6A448 /* Pods-scrollTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scrollTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-scrollTest/Pods-scrollTest.debug.xcconfig"; sourceTree = "<group>"; };
+		B443EA663787F503C3EEF242 /* libPods-scrollTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-scrollTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6F21C09213F90721702E6D /* Pods-scrollTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scrollTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-scrollTest/Pods-scrollTest.release.xcconfig"; sourceTree = "<group>"; };
+		D30DD3302002CC8000FA33C7 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		D30DD3322002E41E00FA33C7 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		D350D0EC200196930008D44B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D350D0EE2001C8160008D44B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		D350D0F02001DAC80008D44B /* EditCountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountryTableViewController.swift; sourceTree = "<group>"; };
+		D350D0F42001F3F50008D44B /* UIImage+resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resizing.swift"; sourceTree = "<group>"; };
+		D350D0F62002C0A40008D44B /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
 		D36A6FA91FF9CC02008AAD89 /* scrollTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scrollTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36A6FAC1FF9CC02008AAD89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36A6FAE1FF9CC02008AAD89 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +66,8 @@
 		D36A6FD01FFB1F27008AAD89 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		D36A6FD21FFB249A008AAD89 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		D36A6FD41FFB40E3008AAD89 /* PlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
+		D39113082002F15D001FC873 /* EditCountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountryTableViewCell.swift; sourceTree = "<group>"; };
+		D3BBF52520048B8E00236EA1 /* GMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMapViewController.swift; path = ../../.Trash/GMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C11F6CF1ED523D80397FF4 /* libPods-scrollTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +89,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12CDB5D35ACD535AB546255D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B443EA663787F503C3EEF242 /* libPods-scrollTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5920F5CC56E76206653E65DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				52EAA17691AF04CBACF6A448 /* Pods-scrollTest.debug.xcconfig */,
+				CE6F21C09213F90721702E6D /* Pods-scrollTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D36A6FA01FF9CC02008AAD89 = {
 			isa = PBXGroup;
 			children = (
 				D36A6FAB1FF9CC02008AAD89 /* scrollTest */,
 				D36A6FC01FF9CC02008AAD89 /* scrollTestTests */,
 				D36A6FAA1FF9CC02008AAD89 /* Products */,
+				5920F5CC56E76206653E65DB /* Pods */,
+				12CDB5D35ACD535AB546255D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,12 +130,21 @@
 			isa = PBXGroup;
 			children = (
 				D36A6FAC1FF9CC02008AAD89 /* AppDelegate.swift */,
-				D36A6FAE1FF9CC02008AAD89 /* PlaceViewController.swift */,
+				D30DD3302002CC8000FA33C7 /* Globals.swift */,
 				D36A6FCC1FFA3093008AAD89 /* BucketlistToggleControl.swift */,
 				D36A6FCE1FFB17FC008AAD89 /* VisitedToggleControl.swift */,
 				D36A6FD01FFB1F27008AAD89 /* Place.swift */,
+				D36A6FAE1FF9CC02008AAD89 /* PlaceViewController.swift */,
 				D36A6FD21FFB249A008AAD89 /* PlaceTableViewCell.swift */,
 				D36A6FD41FFB40E3008AAD89 /* PlaceTableViewController.swift */,
+				D3BBF52520048B8E00236EA1 /* GMapViewController.swift */,
+				D350D0EC200196930008D44B /* MapViewController.swift */,
+				D350D0EE2001C8160008D44B /* Country.swift */,
+				D30DD3322002E41E00FA33C7 /* CountryTableViewCell.swift */,
+				D350D0F62002C0A40008D44B /* CountryTableViewController.swift */,
+				D39113082002F15D001FC873 /* EditCountryTableViewCell.swift */,
+				D350D0F02001DAC80008D44B /* EditCountryTableViewController.swift */,
+				D350D0F42001F3F50008D44B /* UIImage+resizing.swift */,
 				D36A6FB01FF9CC02008AAD89 /* Main.storyboard */,
 				D36A6FB31FF9CC02008AAD89 /* Assets.xcassets */,
 				D36A6FB51FF9CC02008AAD89 /* LaunchScreen.storyboard */,
@@ -118,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D36A6FC61FF9CC02008AAD89 /* Build configuration list for PBXNativeTarget "scrollTest" */;
 			buildPhases = (
+				845B7D8D4D0B3AFF78A7A90D /* [CP] Check Pods Manifest.lock */,
 				D36A6FA51FF9CC02008AAD89 /* Sources */,
 				D36A6FA61FF9CC02008AAD89 /* Frameworks */,
 				D36A6FA71FF9CC02008AAD89 /* Resources */,
+				EB363727329FA6D0C7EF2E80 /* [CP] Embed Pods Frameworks */,
+				3C8061DA8DA9A14617CA1FDE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,18 +263,86 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C8061DA8DA9A14617CA1FDE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-scrollTest/Pods-scrollTest-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-scrollTest/Pods-scrollTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		845B7D8D4D0B3AFF78A7A90D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-scrollTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB363727329FA6D0C7EF2E80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-scrollTest/Pods-scrollTest-frameworks.sh",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-scrollTest/Pods-scrollTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D36A6FA51FF9CC02008AAD89 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D350D0F12001DAC80008D44B /* EditCountryTableViewController.swift in Sources */,
 				D36A6FCF1FFB17FC008AAD89 /* VisitedToggleControl.swift in Sources */,
+				D350D0EF2001C8160008D44B /* Country.swift in Sources */,
+				D350D0F72002C0A40008D44B /* CountryTableViewController.swift in Sources */,
+				D3BBF52620048B8E00236EA1 /* GMapViewController.swift in Sources */,
+				D350D0F52001F3F50008D44B /* UIImage+resizing.swift in Sources */,
 				D36A6FD51FFB40E3008AAD89 /* PlaceTableViewController.swift in Sources */,
 				D36A6FAF1FF9CC02008AAD89 /* PlaceViewController.swift in Sources */,
 				D36A6FAD1FF9CC02008AAD89 /* AppDelegate.swift in Sources */,
+				D30DD3332002E41E00FA33C7 /* CountryTableViewCell.swift in Sources */,
 				D36A6FCD1FFA3093008AAD89 /* BucketlistToggleControl.swift in Sources */,
+				D39113092002F15D001FC873 /* EditCountryTableViewCell.swift in Sources */,
 				D36A6FD11FFB1F27008AAD89 /* Place.swift in Sources */,
 				D36A6FD31FFB249A008AAD89 /* PlaceTableViewCell.swift in Sources */,
+				D30DD3312002CC8000FA33C7 /* Globals.swift in Sources */,
+				D350D0ED200196930008D44B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +493,7 @@
 		};
 		D36A6FC71FF9CC02008AAD89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52EAA17691AF04CBACF6A448 /* Pods-scrollTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -385,6 +508,7 @@
 		};
 		D36A6FC81FF9CC02008AAD89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE6F21C09213F90721702E6D /* Pods-scrollTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

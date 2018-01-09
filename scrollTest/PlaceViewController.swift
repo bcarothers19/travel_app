@@ -90,9 +90,9 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     // Mark: Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
+        print("cancelling")
         // Depending on the style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways
-        let isPresentingInAddPlaceMode = presentingViewController is UINavigationController
-        
+        let isPresentingInAddPlaceMode = presentingViewController is UITabBarController
         if isPresentingInAddPlaceMode {
             print("presenting in add place mode")
             dismiss(animated: true, completion: nil)
@@ -106,6 +106,7 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     // This method lets you configure a view controller before it's presented
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing")
         super.prepare(for: segue, sender: sender)
         
         // Configure the destination view controller only when the save button is pressed
