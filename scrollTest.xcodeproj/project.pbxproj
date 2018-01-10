@@ -28,6 +28,7 @@
 		D36A6FD51FFB40E3008AAD89 /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36A6FD41FFB40E3008AAD89 /* PlaceTableViewController.swift */; };
 		D39113092002F15D001FC873 /* EditCountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39113082002F15D001FC873 /* EditCountryTableViewCell.swift */; };
 		D3BBF52620048B8E00236EA1 /* GMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBF52520048B8E00236EA1 /* GMapViewController.swift */; };
+		D3BBF58220059E7E00236EA1 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBF58120059E7E00236EA1 /* CustomSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D36A6FD41FFB40E3008AAD89 /* PlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
 		D39113082002F15D001FC873 /* EditCountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountryTableViewCell.swift; sourceTree = "<group>"; };
 		D3BBF52520048B8E00236EA1 /* GMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMapViewController.swift; path = ../../.Trash/GMapViewController.swift; sourceTree = "<group>"; };
+		D3BBF58120059E7E00236EA1 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				D350D0F02001DAC80008D44B /* EditCountryTableViewController.swift */,
 				D350D0F42001F3F50008D44B /* UIImage+resizing.swift */,
 				D36A6FB01FF9CC02008AAD89 /* Main.storyboard */,
+				D3BBF58120059E7E00236EA1 /* CustomSegmentedControl.swift */,
 				D36A6FB31FF9CC02008AAD89 /* Assets.xcassets */,
 				D36A6FB51FF9CC02008AAD89 /* LaunchScreen.storyboard */,
 				D36A6FB81FF9CC02008AAD89 /* Info.plist */,
@@ -336,6 +339,7 @@
 				D36A6FD51FFB40E3008AAD89 /* PlaceTableViewController.swift in Sources */,
 				D36A6FAF1FF9CC02008AAD89 /* PlaceViewController.swift in Sources */,
 				D36A6FAD1FF9CC02008AAD89 /* AppDelegate.swift in Sources */,
+				D3BBF58220059E7E00236EA1 /* CustomSegmentedControl.swift in Sources */,
 				D30DD3332002E41E00FA33C7 /* CountryTableViewCell.swift in Sources */,
 				D36A6FCD1FFA3093008AAD89 /* BucketlistToggleControl.swift in Sources */,
 				D39113092002F15D001FC873 /* EditCountryTableViewCell.swift in Sources */,

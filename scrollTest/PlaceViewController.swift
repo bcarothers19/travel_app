@@ -21,6 +21,7 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var visitedToggleControl: VisitedToggleControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var countrySegmentedController: CustomSegmentedControl!
     var place: Place?
     
     override func viewDidLoad() {

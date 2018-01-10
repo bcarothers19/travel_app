@@ -250,6 +250,32 @@
             </objects>
             <point key="canvasLocation" x="-2297" y="597"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="COW-3N-ceh">
+            <objects>
+                <viewController id="F0f-Wy-51H" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CoS-8R-67W"/>
+                        <viewControllerLayoutGuide type="bottom" id="QOm-kG-PcJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e15-Jt-cYM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kv0-L2-y60" customClass="CustomSegmentedControl" customModule="scrollTest" customModuleProvider="target">
+                                <rect key="frame" x="87" y="119" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="eMb-BL-IRD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J44-yk-GyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5264" y="1238"/>
+        </scene>
         <!--Visited Countries-->
         <scene sceneID="kd6-9z-3K1">
             <objects>
@@ -415,6 +441,7 @@
                         <segue destination="Q3s-sN-nQx" kind="relationship" relationship="viewControllers" id="R3z-Zz-suw"/>
                         <segue destination="vft-cG-pj9" kind="relationship" relationship="viewControllers" id="3iR-l7-BYr"/>
                         <segue destination="5gk-1T-UNw" kind="relationship" relationship="viewControllers" id="6Bv-VA-VNC"/>
+                        <segue destination="F0f-Wy-51H" kind="relationship" relationship="viewControllers" id="9c2-hh-2dN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvz-UQ-mi9" userLabel="First Responder" sceneMemberID="firstResponder"/>
