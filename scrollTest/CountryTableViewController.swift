@@ -11,13 +11,14 @@ import os.log
 
 class CountryTableViewController: UITableViewController {
     
-    // MARK: Properties
-    var countryCodesData = Dictionary<String, String>() // Ex: {"Finland": "FL", ...}
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Load the country data
-        countryCodesData = loadJSONData(name: "CountryCodesJSON")
+        // Load the ISO 3166-1 alpha-2 country code data if we haven't already done so
+        if Globals.Countries.countryCodes.isEmpty {
+            Globals.Countries.countryCodes = loadJSONData(name: "CountryCodesJSON")
+        }
         loadCountries()
     }
     
@@ -133,13 +134,13 @@ class CountryTableViewController: UITableViewController {
         var loadedVisited = [String]() // list of country names
         var loadedWantToVisit = [String]() // list of country names
         // Iterate through each country
-        for country in countryCodesData.keys {
+        for country in Globals.Countries.countryCodes.keys {
             print(country)
             // Get the country's flag and resize it to fit (while maintaining original aspect ration)
             let flag = UIImage(named: "flags/" + country)
             let reFlag = flag!.resizedImageAspectFixedHeight(maxHeight: 40)
             // Create a new Country object
-            guard let c = Country(name: countryCodesData[country]!, flag: reFlag, hasVisited: false, wantToVisit: false) else {
+            guard let c = Country(name: Globals.Countries.countryCodes[country]!, flag: reFlag, hasVisited: false, wantToVisit: false) else {
                 fatalError("Unable to instantiate \(country)")
             }
             // Add the name of this country to Been/Want lists

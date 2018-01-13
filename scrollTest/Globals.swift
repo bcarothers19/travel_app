@@ -13,5 +13,10 @@ class Globals {
         static var countries = NSMutableDictionary(dictionary: [String: Country]())
         static var visitedCountries = [String]()
         static var wantToVisitCountries = [String]()
+        static var countryCodes = [String: String]() // Ex: {"Finland": "FL", ...}
     }
+    
+
+
+    
 }

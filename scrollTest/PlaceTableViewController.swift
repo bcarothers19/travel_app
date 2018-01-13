@@ -102,6 +102,7 @@ class PlaceTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        print(segue.identifier)
         switch(segue.identifier ?? ""){
         case "AddItem":
             os_log("Adding a new place", log: OSLog.default, type: .debug)

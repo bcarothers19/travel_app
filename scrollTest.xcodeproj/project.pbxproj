@@ -29,6 +29,7 @@
 		D39113092002F15D001FC873 /* EditCountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39113082002F15D001FC873 /* EditCountryTableViewCell.swift */; };
 		D3BBF52620048B8E00236EA1 /* GMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBF52520048B8E00236EA1 /* GMapViewController.swift */; };
 		D3BBF58220059E7E00236EA1 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBF58120059E7E00236EA1 /* CustomSegmentedControl.swift */; };
+		D3BBF5862005C43200236EA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBF5852005C43200236EA1 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		D39113082002F15D001FC873 /* EditCountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountryTableViewCell.swift; sourceTree = "<group>"; };
 		D3BBF52520048B8E00236EA1 /* GMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMapViewController.swift; path = ../../.Trash/GMapViewController.swift; sourceTree = "<group>"; };
 		D3BBF58120059E7E00236EA1 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		D3BBF5852005C43200236EA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				D350D0F02001DAC80008D44B /* EditCountryTableViewController.swift */,
 				D350D0F42001F3F50008D44B /* UIImage+resizing.swift */,
 				D36A6FB01FF9CC02008AAD89 /* Main.storyboard */,
+				D3BBF5852005C43200236EA1 /* ViewController.swift */,
 				D3BBF58120059E7E00236EA1 /* CustomSegmentedControl.swift */,
 				D36A6FB31FF9CC02008AAD89 /* Assets.xcassets */,
 				D36A6FB51FF9CC02008AAD89 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-scrollTest/Pods-scrollTest-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -346,6 +350,7 @@
 				D36A6FD11FFB1F27008AAD89 /* Place.swift in Sources */,
 				D36A6FD31FFB249A008AAD89 /* PlaceTableViewCell.swift in Sources */,
 				D30DD3312002CC8000FA33C7 /* Globals.swift in Sources */,
+				D3BBF5862005C43200236EA1 /* ViewController.swift in Sources */,
 				D350D0ED200196930008D44B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
