@@ -289,12 +289,15 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="dateLabel" destination="n5L-sL-lgG" id="VJs-hs-VW1"/>
+                        <outlet property="endDateButton" destination="0u7-Rk-bNB" id="nWj-Am-eFT"/>
                         <outlet property="placeAddressTextView" destination="WOf-cy-Kh2" id="7U9-WR-6zf"/>
                         <outlet property="placeNameTextView" destination="Rz9-N0-DIY" id="i7h-fk-wuo"/>
                         <outlet property="placePhotoImageView" destination="m9c-ID-JkD" id="4V6-Ds-SmZ"/>
                         <outlet property="placeURLTextField" destination="kxv-Ld-BXa" id="cB9-7b-56o"/>
                         <outlet property="searchDisplayController" destination="wmM-0L-UN8" id="ctq-bj-IrI"/>
                         <outlet property="searchView" destination="rIV-wU-iUB" id="Z0h-gc-EUv"/>
+                        <outlet property="startDateButton" destination="NSU-W2-SA3" id="60A-fY-Oib"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGN-aM-K2B" userLabel="First Responder" sceneMemberID="firstResponder"/>

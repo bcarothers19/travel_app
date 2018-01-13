@@ -16,6 +16,10 @@ class DatePickerView: UIPickerView  {
         case Year = 2
     }
     
+    var selectedMonth = ""
+    var selectedDay = ""
+    var selectedYear = ""
+    
     let LABEL_TAG = 43
     let bigRowCount = 1000
     let numberOfComponentsRequired = 3
@@ -121,10 +125,29 @@ class DatePickerView: UIPickerView  {
     ///////
     func selectToday() {
         selectRow(todayIndexPath.index(atPosition: 0), inComponent: Component.Month.rawValue, animated: false)
-        selectRow(0, inComponent: Component.Day.rawValue, animated: false)
-        //selectRow(todayIndexPath.index(atPosition: 1), inComponent: Component.Day.rawValue, animated: false)
+//        selectRow(0, inComponent: Component.Day.rawValue, animated: false)
+        selectRow(todayIndexPath.index(atPosition: 1), inComponent: Component.Day.rawValue, animated: false)
         selectRow(todayIndexPath.index(atPosition: 2), inComponent: Component.Year.rawValue, animated: false)
+        self.selectedMonth = months[todayIndexPath.index(atPosition: 0)]
+        self.selectedDay = days[todayIndexPath.index(atPosition: 1)]
+        self.selectedYear = years[todayIndexPath.index(atPosition: 2)]
     }
+    
+    func selectPreviouslySelected(month: String, day: String, year: String) {
+//        indexSection1 = months.index(of: month)!
+//        indexSection2 = days.index(of: day)!
+//        indexSection3 = years.index(of: year)!
+
+        selectRow(months.index(of: month)!, inComponent: Component.Month.rawValue, animated: false)
+        selectRow(days.index(of: day)!, inComponent: Component.Day.rawValue, animated: false)
+        selectRow(years.index(of: year)!, inComponent: Component.Year.rawValue, animated: false)
+
+        self.selectedMonth = months[months.index(of: month)!]
+        self.selectedDay = days[days.index(of: day)!]
+        self.selectedYear = years[years.index(of: year)!]
+    }
+    
+    
     
     //////
     var todayIndexPath: NSIndexPath {
@@ -285,6 +308,16 @@ extension DatePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
         returnView.text = titleForRow(row: row, forComponent: component)
         
         return returnView
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == Component.Month.rawValue {
+            self.selectedMonth = self.months[row] as String
+        } else if component == Component.Day.rawValue {
+            self.selectedDay = self.days[row] as String
+        } else {
+            self.selectedYear = self.years[row] as String
+        }
     }
     
     
