@@ -11,7 +11,7 @@ import GooglePlaces
 
 
 
-class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -82,6 +82,33 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
     }
     
     
+    // MARK: Date Buttons
+    @IBAction func showDatePickerAlert(_ sender: UIButton) {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: 375, height: 150)
+        
+        let datePicker = DatePickerView(frame: CGRect(x: 0, y: 0, width: 375, height: 150))
+        datePicker.selectToday()
+        
+        vc.view.addSubview(datePicker)
+        
+        let alert = UIAlertController(title: "Select start date", message: "Must choose at least a month or a year", preferredStyle: .actionSheet) as! UIAlertController
+        alert.isModalInPopover = true
+        
+        let okAction = UIAlertAction(title: "Done", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            //Perform Action
+        })
+        alert.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        alert.setValue(vc, forKey: "contentViewController")
+        
+        present(alert, animated: true, completion: nil)
+
+    }
+    
     // MARK: Private Methods
     private func loadJSONData(name: String) -> Dictionary<String, String> {
         // Get the data asset that we are trying to load
@@ -100,7 +127,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate 
 }
 
 // Handle the users's selection
-extension ViewController: GMSAutocompleteResultsViewControllerDelegate {
+extension AddEditPlacesViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         // Do something with the selected place

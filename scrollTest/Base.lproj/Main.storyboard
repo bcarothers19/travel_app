@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="-1401.449275362319" y="-361.14130434782612"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Edit Places View Controller-->
         <scene sceneID="eGO-yu-04D">
             <objects>
-                <viewController id="2Nf-14-yM0" customClass="ViewController" customModule="scrollTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Nf-14-yM0" customClass="AddEditPlacesViewController" customModule="scrollTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vCd-Dp-IN8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -157,10 +157,16 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSU-W2-SA3">
                                                                         <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
                                                                         <state key="normal" title="Choose Start Date"/>
+                                                                        <connections>
+                                                                            <action selector="showDatePickerAlert:" destination="2Nf-14-yM0" eventType="touchUpInside" id="7hv-ie-t8Q"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0u7-Rk-bNB">
                                                                         <rect key="frame" x="181" y="0.0" width="119" height="30"/>
                                                                         <state key="normal" title="Choose End Date"/>
+                                                                        <connections>
+                                                                            <action selector="showDatePickerAlert:" destination="2Nf-14-yM0" eventType="touchUpInside" id="p6x-JK-nrw"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -177,18 +183,18 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="166" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Bucket List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-5a-BrU">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="91.333333333333329" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="50"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4Nc-aD-bY4" customClass="BucketlistToggleControl" customModule="scrollTest" customModuleProvider="target">
-                                                                        <rect key="frame" x="94.333333333333343" y="0.0" width="71.666666666666657" height="50"/>
+                                                                        <rect key="frame" x="116" y="0.0" width="50" height="50"/>
                                                                     </stackView>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zzK-F8-tHw">
-                                                                <rect key="frame" x="176" y="0.0" width="124" height="50"/>
+                                                                <rect key="frame" x="187.66666666666669" y="0.0" width="112.33333333333331" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Visited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdk-dY-jdA">
                                                                         <rect key="frame" x="0.0" y="0.0" width="57.333333333333336" height="50"/>
@@ -197,7 +203,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="999-pW-6aw" customClass="VisitedToggleControl" customModule="scrollTest" customModuleProvider="target">
-                                                                        <rect key="frame" x="62.333333333333343" y="0.0" width="61.666666666666657" height="50"/>
+                                                                        <rect key="frame" x="62.333333333333343" y="0.0" width="50" height="50"/>
                                                                     </stackView>
                                                                 </subviews>
                                                             </stackView>
