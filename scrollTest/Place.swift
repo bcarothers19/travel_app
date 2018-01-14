@@ -50,8 +50,14 @@ class Place: NSObject, NSCoding {
         static let address = "address"
         static let url = "url"
         
-        static let coords = "coords"
-        static let viewpoint = "viewpoint"
+        // Can't encode CLLocationCoordinate2D or GMSCoordinateBounds, need to encode the lat/lon individually and then re-create when decoding
+        static let latitude = "latitude"
+        static let longitude = "longitude"
+        static let latNE = "latNE"
+        static let lonNE = "lonNE"
+        static let latSW = "latSW"
+        static let lonSW = "longSW"
+        
         static let country = "country"
         static let city = "city"
         
@@ -112,8 +118,20 @@ class Place: NSObject, NSCoding {
         aCoder.encode(address, forKey: PropertyKey.address)
         aCoder.encode(url, forKey: PropertyKey.url)
         
-        aCoder.encode(coords, forKey: PropertyKey.coords)
-        aCoder.encode(viewpoint, forKey: PropertyKey.viewpoint)
+        
+        let latitude = coords?.latitude
+        let longitude = coords?.longitude
+        aCoder.encode(latitude, forKey: PropertyKey.latitude)
+        aCoder.encode(longitude, forKey: PropertyKey.longitude)
+        let latNE = viewpoint?.northEast.latitude
+        let lonNE = viewpoint?.northEast.longitude
+        let latSW = viewpoint?.southWest.latitude
+        let lonSW = viewpoint?.southWest.longitude
+        aCoder.encode(latNE, forKey: PropertyKey.latNE)
+        aCoder.encode(lonNE, forKey: PropertyKey.lonNE)
+        aCoder.encode(latSW, forKey: PropertyKey.latSW)
+        aCoder.encode(lonSW, forKey: PropertyKey.lonSW)
+
         aCoder.encode(country, forKey: PropertyKey.country)
         aCoder.encode(city, forKey: PropertyKey.city)
 
@@ -144,8 +162,17 @@ class Place: NSObject, NSCoding {
         let address = aDecoder.decodeObject(forKey: PropertyKey.address) as? String
         let url = aDecoder.decodeObject(forKey: PropertyKey.url) as? String
         
-        let coords = aDecoder.decodeObject(forKey: PropertyKey.coords) as? CLLocationCoordinate2D
-        let viewpoint = aDecoder.decodeObject(forKey: PropertyKey.viewpoint) as? GMSCoordinateBounds
+        let latitude = aDecoder.decodeObject(forKey: PropertyKey.latitude) as? CLLocationDegrees
+        let longitude = aDecoder.decodeObject(forKey: PropertyKey.longitude) as? CLLocationDegrees
+        let coords = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+        let latNE = aDecoder.decodeObject(forKey: PropertyKey.latNE) as? CLLocationDegrees
+        let lonNE = aDecoder.decodeObject(forKey: PropertyKey.lonNE) as? CLLocationDegrees
+        let latSW = aDecoder.decodeObject(forKey: PropertyKey.latSW) as? CLLocationDegrees
+        let lonSW = aDecoder.decodeObject(forKey: PropertyKey.lonSW) as? CLLocationDegrees
+        let coordNE = CLLocationCoordinate2D(latitude: latNE!, longitude: lonNE!)
+        let coordSW = CLLocationCoordinate2D(latitude: latSW!, longitude: lonSW!)
+        let viewpoint = GMSCoordinateBounds(coordinate: coordNE, coordinate: coordSW)
+
         let country = aDecoder.decodeObject(forKey: PropertyKey.country) as? String
         let city = aDecoder.decodeObject(forKey: PropertyKey.city) as? String
 

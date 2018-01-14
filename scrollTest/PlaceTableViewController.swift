@@ -126,7 +126,7 @@ class PlaceTableViewController: UITableViewController {
     // MARK: Actions
     @IBAction func unwindToPlaceList(sender: UIStoryboardSegue) {
 
-        if let sourceViewController = sender.source as? PlaceViewController, let place = sourceViewController.place {
+        if let sourceViewController = sender.source as? AddEditPlaceViewController, let place = sourceViewController.place {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing place
                 places[selectedIndexPath.row] = place

@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="-1401.449275362319" y="-361.14130434782612"/>
         </scene>
-        <!--Add Edit Places View Controller-->
+        <!--Add Edit Place View Controller-->
         <scene sceneID="eGO-yu-04D">
             <objects>
-                <viewController id="2Nf-14-yM0" customClass="AddEditPlacesViewController" customModule="scrollTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Nf-14-yM0" customClass="AddEditPlaceViewController" customModule="scrollTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vCd-Dp-IN8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -286,23 +286,35 @@
                         <viewLayoutGuide key="safeArea" id="VPT-Yb-BK5"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hbu-34-F2C">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UBo-z5-DHS"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FJl-rx-rkR"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UBo-z5-DHS">
+                            <connections>
+                                <action selector="cancel:" destination="2Nf-14-yM0" id="xlg-aa-fqE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FJl-rx-rkR">
+                            <connections>
+                                <segue destination="CCG-oO-oSG" kind="unwind" unwindAction="unwindToPlaceListWithSender:" id="eWg-AP-BVF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="bucketlistToggleControl" destination="4Nc-aD-bY4" id="Nyf-YG-FuN"/>
                         <outlet property="dateLabel" destination="n5L-sL-lgG" id="VJs-hs-VW1"/>
                         <outlet property="endDateButton" destination="0u7-Rk-bNB" id="nWj-Am-eFT"/>
                         <outlet property="placeAddressTextView" destination="WOf-cy-Kh2" id="7U9-WR-6zf"/>
                         <outlet property="placeNameTextView" destination="Rz9-N0-DIY" id="i7h-fk-wuo"/>
                         <outlet property="placePhotoImageView" destination="m9c-ID-JkD" id="4V6-Ds-SmZ"/>
                         <outlet property="placeURLTextField" destination="kxv-Ld-BXa" id="cB9-7b-56o"/>
+                        <outlet property="saveButton" destination="FJl-rx-rkR" id="k1b-Vq-ukW"/>
                         <outlet property="searchDisplayController" destination="wmM-0L-UN8" id="ctq-bj-IrI"/>
                         <outlet property="searchView" destination="rIV-wU-iUB" id="Z0h-gc-EUv"/>
                         <outlet property="startDateButton" destination="NSU-W2-SA3" id="60A-fY-Oib"/>
+                        <outlet property="visitedToggleControl" destination="999-pW-6aw" id="csN-30-Nfu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGN-aM-K2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CCG-oO-oSG" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="wmM-0L-UN8">
                     <connections>
                         <outlet property="delegate" destination="2Nf-14-yM0" id="ZAN-V3-S9x"/>

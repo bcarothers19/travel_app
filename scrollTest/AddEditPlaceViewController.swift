@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AddEditPlaceViewController.swift
 //  scrollTest
 //
 //  Created by Brian Carothers on 1/9/18.
@@ -7,21 +7,30 @@
 //
 
 import UIKit
+import os.log
 import GooglePlaces
 
 
 
-class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class AddEditPlaceViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+    
+    var place: Place?
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var searchView: UIView! // Holds the Google Places search bar
     @IBOutlet weak var placeNameTextView: UITextView!
     @IBOutlet weak var placePhotoImageView: UIImageView!
     @IBOutlet weak var placeAddressTextView: UITextView!
     @IBOutlet weak var placeURLTextField: UITextField!
+    
+    // Bucket list and visited toggle buttons
+    @IBOutlet weak var bucketlistToggleControl: BucketlistToggleControl!
+    @IBOutlet weak var visitedToggleControl: VisitedToggleControl!
     
     // UI buttons and label for selecting best time to visit
     @IBOutlet weak var startDateButton: UIButton!
@@ -110,7 +119,7 @@ class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UIText
     
     // MARK: Date Buttons
     @IBAction func showDatePickerAlert(_ sender: UIButton) {
-        guard (sender == startDateButton) || (sender == endDateButton) else {
+        guard (sender === startDateButton) || (sender === endDateButton) else {
             fatalError("In showDatePickerAlert but the button was not startDateButton or endDateButton. Sender button is \(sender)")
         }
         
@@ -122,7 +131,7 @@ class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UIText
 
         
         var alertTitle = ""
-        if sender == startDateButton {
+        if sender === startDateButton {
             print("START BUTTON")
             
             if startSelected {
@@ -232,10 +241,35 @@ class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UIText
             fatalError("End date text is not empty while start date text is empty. Shouldn't be able to select end date without first selecting start date")
         }
     }
+    
+    // MARK: Navigation
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        // Confiure the destination view controller only when the save button is pressed
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = placeNameTextView.text
+        let photo = placePhotoImageView.image
+        let address = placeAddressTextView.text
+        let url = placeURLTextField.text
+        let dateRangeText = dateLabel.text
+        let bucketList = bucketlistToggleControl.bucketListSelected
+        let visited = visitedToggleControl.visitedSelected
+
+        place = Place(name: name!, photo: photo, address: address, url: url, coords: placeCoords, viewpoint: placeViewpoint, country: placeCountry, city: placeCity, bucketList: bucketList, visited: visited, dateRangeText: dateRangeText, startSelected: startSelected, startMonth: startMonth, startDay: startDay, startYear: startYear, startText: startText, endSelected: endSelected, endMonth: endMonth, endDay: endDay, endYear: endYear, endText: endText)
+        
+    }
 }
 
 // Handle the users's selection
-extension AddEditPlacesViewController: GMSAutocompleteResultsViewControllerDelegate {
+extension AddEditPlaceViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
         // Parse the selected place's information
