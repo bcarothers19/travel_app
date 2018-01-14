@@ -38,7 +38,7 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             nameTextField.text = place.name
             addressTextField.text = place.address
             urlTextField.text = place.url
-            dateTextField.text = place.date
+//            dateTextField.text = place.date
             photoImageView.image = place.photo
             bucketlistToggleControl.bucketListSelected = place.bucketList
             visitedToggleControl.visitedSelected = place.visited
@@ -125,7 +125,7 @@ class PlaceViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         let visited = visitedToggleControl.visitedSelected
         
         // Set the place to be passed to the PlaceTableViewController after the unwind segue
-        place = Place(name: name, photo: photo, address: address, url: url, date: date, bucketList: bucketList, visited: visited)
+//        place = Place(name: name, photo: photo, address: address, url: url, date: date, bucketList: bucketList, visited: visited)
     }
     
     // MARK: Actions

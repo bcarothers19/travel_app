@@ -23,6 +23,7 @@ class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UIText
     @IBOutlet weak var placeAddressTextView: UITextView!
     @IBOutlet weak var placeURLTextField: UITextField!
     
+    // UI buttons and label for selecting best time to visit
     @IBOutlet weak var startDateButton: UIButton!
     @IBOutlet weak var endDateButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
@@ -39,7 +40,11 @@ class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UIText
     var endYear = ""
     var endText = ""
     
-//    var placeCoords = CLLocationCoordinate2D()
+    // Place information that won't be displayed, but we need to save this information
+    var placeCoords = CLLocationCoordinate2D()
+    var placeViewpoint: GMSCoordinateBounds? = GMSCoordinateBounds()
+    var placeCountry: String?
+    var placeCity: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -233,37 +238,9 @@ class AddEditPlacesViewController: UIViewController, UITextFieldDelegate, UIText
 extension AddEditPlacesViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        // Do something with the selected place
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place coords: \(place.coordinate)")
-        print("Place url: \(place.website)")
-        print("Place open: \(String(describing: place.openNowStatus))")
-        print("Place number: \(place.phoneNumber)")
-        print("Place rating: \(place.rating)")
-        print("Place price: \(place.priceLevel)")
-        print("Place types: \(place.types)")
-        print("Place viewport: \(place.viewport)")
-        print("Place address parts: \(place.addressComponents)")
-        for part in place.addressComponents! {
-            print(part.type, part.name)
-            let x = place.openNowStatus as GMSPlacesOpenNowStatus!
-            //        print(text(for: place.openNowStatus))
-            //            print()
-            
-            let placeID = place.placeID
-            GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
-                if let error = error {
-                    // TODO: handle the error.
-                    print("Error: \(error.localizedDescription)")
-                } else {
-                    print(photos)
-                    if let firstPhoto = photos?.results.first {
-                        self.loadImageForMetadata(photoMetadata: firstPhoto)
-                    }
-                }
-            }
-        }
+        // Parse the selected place's information
+        let placeID = place.placeID
+        // Update the page with this place's information
         self.placeNameTextView.text = place.name
         self.placeAddressTextView.text = place.formattedAddress
         if let url = place.website {
@@ -271,19 +248,43 @@ extension AddEditPlacesViewController: GMSAutocompleteResultsViewControllerDeleg
         } else {
             self.placeURLTextField.text = "Enter a URL"
         }
-        
+        // Get a picture of the place from Google (if any are available)
+        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                // Get the metadate of the first photo in the results
+                if let firstPhoto = photos?.results.first {
+                    // Get the image from the metadata and update our placePhotoImageView
+                    self.loadImageForMetadata(photoMetadata: firstPhoto)
+                }
+            }
+        }
+        // Get the backend information we need (will not be displayed on this page)
+        self.placeCoords = place.coordinate
+        self.placeViewpoint = place.viewport!
+        for part in place.addressComponents! {
+            print(part.type, part.name)
+            if part.type == "country" {
+                self.placeCountry = part.name
+            } else if part.type == "city" {
+                self.placeCity = part.name
+            }
+        }
     }
     
+    // Gets the photo for a given photo metadata, and update the placePhotoImageView with this picture
     func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+        // Get the place photo
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
             (photo, error) -> Void in
             if let error = error {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
-                print(photo?.size)
+                // Resize the image to fit within a given rectangle size while maintaining the original aspect ratio
                 let resizedPhoto = photo?.resizedImageWithinRect(rectSize: CGSize(width: self.view.frame.width - 20, height: 375))
-                print(resizedPhoto?.size)
                 self.placePhotoImageView.image = resizedPhoto;
             }
         })

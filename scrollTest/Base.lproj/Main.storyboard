@@ -124,8 +124,8 @@
                                                         </attributedString>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a URL" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kxv-Ld-BXa">
-                                                        <rect key="frame" x="137" y="427" width="101.66666666666669" height="30"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a URL" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kxv-Ld-BXa">
+                                                        <rect key="frame" x="10" y="427" width="355" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="url"/>
@@ -236,6 +236,7 @@
                                                     <constraint firstItem="2IT-yl-f21" firstAttribute="top" secondItem="leq-nO-aa5" secondAttribute="bottom" constant="8" id="Hj7-z4-v66"/>
                                                     <constraint firstItem="leq-nO-aa5" firstAttribute="top" secondItem="kxv-Ld-BXa" secondAttribute="bottom" constant="8" id="I5q-Yo-3sY"/>
                                                     <constraint firstItem="17Q-jg-LWN" firstAttribute="centerX" secondItem="0YL-lX-8Mh" secondAttribute="centerX" id="Iq1-8e-8Qa"/>
+                                                    <constraint firstItem="kxv-Ld-BXa" firstAttribute="leading" secondItem="0YL-lX-8Mh" secondAttribute="leading" constant="10" id="Izn-ot-lfo"/>
                                                     <constraint firstItem="Rz9-N0-DIY" firstAttribute="leading" secondItem="0YL-lX-8Mh" secondAttribute="leading" constant="10" id="J7d-nN-YQr"/>
                                                     <constraint firstItem="Rz9-N0-DIY" firstAttribute="top" secondItem="0YL-lX-8Mh" secondAttribute="top" id="JQT-eW-zTM"/>
                                                     <constraint firstAttribute="trailing" secondItem="WOf-cy-Kh2" secondAttribute="trailing" constant="10" id="LF0-mG-dyW"/>
@@ -246,6 +247,7 @@
                                                     <constraint firstItem="WOf-cy-Kh2" firstAttribute="centerX" secondItem="0YL-lX-8Mh" secondAttribute="centerX" id="dL7-Ct-cGy"/>
                                                     <constraint firstItem="2IT-yl-f21" firstAttribute="trailing" secondItem="leq-nO-aa5" secondAttribute="trailing" id="gbK-Y2-xVa"/>
                                                     <constraint firstAttribute="trailing" secondItem="Rz9-N0-DIY" secondAttribute="trailing" constant="10" id="jbn-xW-oqK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kxv-Ld-BXa" secondAttribute="trailing" constant="10" id="toU-TV-z3G"/>
                                                     <constraint firstItem="m9c-ID-JkD" firstAttribute="centerX" secondItem="0YL-lX-8Mh" secondAttribute="centerX" id="w5g-rj-sJD"/>
                                                     <constraint firstItem="kxv-Ld-BXa" firstAttribute="centerX" secondItem="0YL-lX-8Mh" secondAttribute="centerX" id="wPX-7D-bpF"/>
                                                     <constraint firstItem="2IT-yl-f21" firstAttribute="leading" secondItem="leq-nO-aa5" secondAttribute="leading" id="y4W-gh-YgX"/>

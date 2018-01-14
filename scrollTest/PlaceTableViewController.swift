@@ -146,32 +146,32 @@ class PlaceTableViewController: UITableViewController {
     // MARK: Private Methods
     private func loadSamplePlaces() {
         let photo1 = UIImage(named: "sample_tokyo")
-        guard let place1 = Place(name: "Tokyo", photo: photo1, address: "Tokyo, Japan", url: nil, date: "Anytime!", bucketList: false, visited: false) else {
+        guard let place1 = Place(name: "Tokyo", photo: photo1, address: "Tokyo, Japan", url: nil, coords: nil, viewpoint: nil, country: "Japan", city: "Tokyo", bucketList: false, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place1")
         }
         
         let photo2 = UIImage(named: "sample_lappland_dome")
-        guard let place2 = Place(name: "Kakslauttanen Arctic Resort", photo: photo2, address: "Kiilopääntie 9, 99830 Saariselkä, Finland", url: "www.kakslauttanen.fi", date: "Dec - Feb", bucketList: true, visited: false) else {
+        guard let place2 = Place(name: "Kakslauttanen Arctic Resort", photo: photo2, address: "Kiilopääntie 9, 99830 Saariselkä, Finland", url: "www.kakslauttanen.fi", coords: nil, viewpoint: nil, country: "Finland", city: nil, bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place2")
         }
         
         let photo3 = UIImage(named: "sample_lappland_husky")
-        guard let place3 = Place(name: "Lappland Husky Sled Overnight", photo: photo3, address: "Lappland, Finland", url: "https://www.pallashusky.com/english/husky-tours/", date: "Dec - Feb", bucketList: true, visited: false) else {
+        guard let place3 = Place(name: "Lappland Husky Sled Overnight", photo: photo3, address: "Lappland, Finland", url: "https://www.pallashusky.com/english/husky-tours/", coords: nil, viewpoint: nil, country: "Finland", city: nil, bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place3")
         }
         
         let photo4 = UIImage(named: "sample_zion")
-        guard let place4 = Place(name: "Zion National Park", photo: photo4, address: "Zion National Park, Utah", url: "www.zionnationalpark.com", date: "Apr - May", bucketList: true, visited: false) else {
+        guard let place4 = Place(name: "Zion National Park", photo: photo4, address: "Zion National Park, Utah", url: "www.zionnationalpark.com", coords: nil, viewpoint: nil, country: "United States of America", city: nil,  bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place4")
         }
         
         let photo5 = UIImage(named: "sample_florence")
-        guard let place5 = Place(name: "Florence", photo: photo5, address: "Florence, Italy", url: nil, date: "Anytime!", bucketList: false, visited: true) else {
+        guard let place5 = Place(name: "Florence", photo: photo5, address: "Florence, Italy", url: nil, coords: nil, viewpoint: nil, country: "Italy", city: "Florence", bucketList: false, visited: true, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place5")
         }
         
         let photo6 = UIImage(named: "sample_redrocks")
-        guard let place6 = Place(name: "Red Rocks Ampitheatre", photo: photo6, address: "18300 W Alameda Pkwy, Morrison, CO 80465", url: "redrocksonline.com/", date: "Anytime!", bucketList: true, visited: true) else {
+        guard let place6 = Place(name: "Red Rocks Ampitheatre", photo: photo6, address: "18300 W Alameda Pkwy, Morrison, CO 80465", url: "redrocksonline.com/", coords: nil, viewpoint: nil, country: "United States of America", city: "Denver", bucketList: true, visited: true, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place6")
         }
         
