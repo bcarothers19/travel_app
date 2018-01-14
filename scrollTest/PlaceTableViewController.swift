@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import GooglePlaces
 
 class PlaceTableViewController: UITableViewController {
 
@@ -146,32 +147,34 @@ class PlaceTableViewController: UITableViewController {
     // MARK: Private Methods
     private func loadSamplePlaces() {
         let photo1 = UIImage(named: "sample_tokyo")
-        guard let place1 = Place(name: "Tokyo", photo: photo1, address: "Tokyo, Japan", url: nil, coords: nil, viewpoint: nil, country: "Japan", city: "Tokyo", bucketList: false, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
+        guard let place1 = Place(name: "Tokyo", photo: photo1, address: "Tokyo, Japan", url: nil, coords: CLLocationCoordinate2D(latitude: 35.711741, longitude: 139.746427), viewpoint: nil, country: "Japan", city: "Tokyo", bucketList: false, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place1")
         }
+
+//        let x = CLLocationCoordinate2D(latitude: 39.665548, longitude: -105.206001)
         
         let photo2 = UIImage(named: "sample_lappland_dome")
-        guard let place2 = Place(name: "Kakslauttanen Arctic Resort", photo: photo2, address: "Kiilopääntie 9, 99830 Saariselkä, Finland", url: "www.kakslauttanen.fi", coords: nil, viewpoint: nil, country: "Finland", city: nil, bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
+        guard let place2 = Place(name: "Kakslauttanen Arctic Resort", photo: photo2, address: "Kiilopääntie 9, 99830 Saariselkä, Finland", url: "www.kakslauttanen.fi", coords: CLLocationCoordinate2D(latitude: 68.334278, longitude: 27.334439), viewpoint: nil, country: "Finland", city: nil, bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place2")
         }
         
         let photo3 = UIImage(named: "sample_lappland_husky")
-        guard let place3 = Place(name: "Lappland Husky Sled Overnight", photo: photo3, address: "Lappland, Finland", url: "https://www.pallashusky.com/english/husky-tours/", coords: nil, viewpoint: nil, country: "Finland", city: nil, bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
+        guard let place3 = Place(name: "Lappland Husky Sled Overnight", photo: photo3, address: "Lappland, Finland", url: "https://www.pallashusky.com/english/husky-tours/", coords: CLLocationCoordinate2D(latitude: 68.334278, longitude: 27.334439), viewpoint: nil, country: "Finland", city: nil, bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place3")
         }
         
         let photo4 = UIImage(named: "sample_zion")
-        guard let place4 = Place(name: "Zion National Park", photo: photo4, address: "Zion National Park, Utah", url: "www.zionnationalpark.com", coords: nil, viewpoint: nil, country: "United States of America", city: nil,  bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
+        guard let place4 = Place(name: "Zion National Park", photo: photo4, address: "Zion National Park, Utah", url: "www.zionnationalpark.com", coords: CLLocationCoordinate2D(latitude: 37.206379, longitude: -112.986383), viewpoint: nil, country: "United States of America", city: nil,  bucketList: true, visited: false, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place4")
         }
         
         let photo5 = UIImage(named: "sample_florence")
-        guard let place5 = Place(name: "Florence", photo: photo5, address: "Florence, Italy", url: nil, coords: nil, viewpoint: nil, country: "Italy", city: "Florence", bucketList: false, visited: true, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
+        guard let place5 = Place(name: "Florence", photo: photo5, address: "Florence, Italy", url: nil, coords: CLLocationCoordinate2D(latitude: 43.774745, longitude: 11.251192), viewpoint: nil, country: "Italy", city: "Florence", bucketList: false, visited: true, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place5")
         }
         
         let photo6 = UIImage(named: "sample_redrocks")
-        guard let place6 = Place(name: "Red Rocks Ampitheatre", photo: photo6, address: "18300 W Alameda Pkwy, Morrison, CO 80465", url: "redrocksonline.com/", coords: nil, viewpoint: nil, country: "United States of America", city: "Denver", bucketList: true, visited: true, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
+        guard let place6 = Place(name: "Red Rocks Ampitheatre", photo: photo6, address: "18300 W Alameda Pkwy, Morrison, CO 80465", url: "redrocksonline.com/", coords: CLLocationCoordinate2D(latitude: 39.665548, longitude: -105.206001), viewpoint: nil, country: "United States of America", city: "Denver", bucketList: true, visited: true, dateRangeText: "-", startSelected: false, startMonth: "", startDay: "", startYear: "", startText: "", endSelected: false, endMonth: "", endDay: "", endYear: "", endText: "") else {
             fatalError("Unable to instantiate place6")
         }
         

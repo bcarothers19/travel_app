@@ -118,19 +118,25 @@ class Place: NSObject, NSCoding {
         aCoder.encode(address, forKey: PropertyKey.address)
         aCoder.encode(url, forKey: PropertyKey.url)
         
-        
-        let latitude = coords?.latitude
-        let longitude = coords?.longitude
+        print(coords?.latitude, NSNumber(value: (coords?.latitude)!))
+        print(coords?.longitude, NSNumber(value: (coords?.longitude)!))
+        let latitude = NSNumber(value: (coords?.latitude)!)
+        print(latitude)
+        let longitude = NSNumber(value: (coords?.longitude)!)
         aCoder.encode(latitude, forKey: PropertyKey.latitude)
         aCoder.encode(longitude, forKey: PropertyKey.longitude)
-        let latNE = viewpoint?.northEast.latitude
-        let lonNE = viewpoint?.northEast.longitude
-        let latSW = viewpoint?.southWest.latitude
-        let lonSW = viewpoint?.southWest.longitude
-        aCoder.encode(latNE, forKey: PropertyKey.latNE)
-        aCoder.encode(lonNE, forKey: PropertyKey.lonNE)
-        aCoder.encode(latSW, forKey: PropertyKey.latSW)
-        aCoder.encode(lonSW, forKey: PropertyKey.lonSW)
+        if viewpoint != nil {
+            print("IN HERE!!!")
+            let latNE = NSNumber(value: (viewpoint?.northEast.latitude)!)
+            let lonNE = NSNumber(value: (viewpoint?.northEast.longitude)!)
+            let latSW = NSNumber(value: (viewpoint?.southWest.latitude)!)
+            let lonSW = NSNumber(value: (viewpoint?.southWest.longitude)!)
+            aCoder.encode(latNE, forKey: PropertyKey.latNE)
+            aCoder.encode(lonNE, forKey: PropertyKey.lonNE)
+            aCoder.encode(latSW, forKey: PropertyKey.latSW)
+            aCoder.encode(lonSW, forKey: PropertyKey.lonSW)
+        }
+        print("SKIPPED IT")
 
         aCoder.encode(country, forKey: PropertyKey.country)
         aCoder.encode(city, forKey: PropertyKey.city)
@@ -157,22 +163,31 @@ class Place: NSObject, NSCoding {
             os_log("Unable to decode the name for a Place object", log: OSLog.default, type: .debug)
             return nil
         }
+        print(name)
         // The rest of the variables are optional properties, so just use a conditional cast
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         let address = aDecoder.decodeObject(forKey: PropertyKey.address) as? String
         let url = aDecoder.decodeObject(forKey: PropertyKey.url) as? String
         
-        let latitude = aDecoder.decodeObject(forKey: PropertyKey.latitude) as? CLLocationDegrees
-        let longitude = aDecoder.decodeObject(forKey: PropertyKey.longitude) as? CLLocationDegrees
-        let coords = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-        let latNE = aDecoder.decodeObject(forKey: PropertyKey.latNE) as? CLLocationDegrees
-        let lonNE = aDecoder.decodeObject(forKey: PropertyKey.lonNE) as? CLLocationDegrees
-        let latSW = aDecoder.decodeObject(forKey: PropertyKey.latSW) as? CLLocationDegrees
-        let lonSW = aDecoder.decodeObject(forKey: PropertyKey.lonSW) as? CLLocationDegrees
-        let coordNE = CLLocationCoordinate2D(latitude: latNE!, longitude: lonNE!)
-        let coordSW = CLLocationCoordinate2D(latitude: latSW!, longitude: lonSW!)
-        let viewpoint = GMSCoordinateBounds(coordinate: coordNE, coordinate: coordSW)
+        let latitude = aDecoder.decodeObject(forKey: PropertyKey.latitude) as! CLLocationDegrees
+        print(latitude)
+        let longitude = aDecoder.decodeObject(forKey: PropertyKey.longitude) as! CLLocationDegrees
+        print(longitude)
+        let coords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 
+        var viewpoint: GMSCoordinateBounds?
+        if aDecoder.decodeObject(forKey: PropertyKey.latNE) != nil {
+            // If one of these is != nil, all should be != nil
+            let latNE = aDecoder.decodeObject(forKey: PropertyKey.latNE) as! CLLocationDegrees
+            let lonNE = aDecoder.decodeObject(forKey: PropertyKey.lonNE) as! CLLocationDegrees
+            let latSW = aDecoder.decodeObject(forKey: PropertyKey.latSW) as! CLLocationDegrees
+            let lonSW = aDecoder.decodeObject(forKey: PropertyKey.lonSW) as! CLLocationDegrees
+            let coordNE = CLLocationCoordinate2D(latitude: latNE, longitude: lonNE)
+            let coordSW = CLLocationCoordinate2D(latitude: latSW, longitude: lonSW)
+            viewpoint = GMSCoordinateBounds(coordinate: coordNE, coordinate: coordSW)
+        } else {
+            viewpoint = nil
+        }
         let country = aDecoder.decodeObject(forKey: PropertyKey.country) as? String
         let city = aDecoder.decodeObject(forKey: PropertyKey.city) as? String
 
